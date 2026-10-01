@@ -115,7 +115,13 @@ span.line.short {
 }
 
 .prevDept.open {
-    display: block;
+    display: flex;
+    flex-direction: column;
+}
+
+.prevDept .dept {
+    font-style: italic !important;
+    background: #363c46;
 }
 
 .nextDept {

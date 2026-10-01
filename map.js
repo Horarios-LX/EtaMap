@@ -1,7 +1,7 @@
 import * as maplibregl from 'https://unpkg.com/maplibre-gl@6.10.0/dist/maplibre-gl.mjs';
 
 const infoContainer = document.getElementById('info');
-//infoContainer.style.display = 'none';
+infoContainer.style.display = 'none';
 
 const map = new maplibregl.Map({
     container: 'map',
@@ -157,32 +157,32 @@ map.on('click', (event) => {
     fetch("https://etas.doesmtr.eu/stops/" + stopId + "/etas").then(res => res.json()).then(data => {
         let depts = data.etas;
         let now = Date.now();
-        let prevDepts = depts.filter(d => d.departureTime < now);
-        let nextDepts = depts.filter(d => d.departureTime >= now);
+        let prevDepts = depts.filter(d => d.etaAt < now);
+        let nextDepts = depts.filter(d => d.etaAt >= now);
 
         document.querySelector(".prevDept").innerHTML = prevDepts.map(d => {
-            let time = new Date(d.departureTime);
-            let timeStr = time.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-            return `<div class="dept"><label class="dest"><span class="line long">${d.tripId.split("]")[1].split("_")[0]}</span> ${d.tripId} | Vec: ${d.vehicleId}</label><label class="arrivalTime">${timeStr}</label></div>`;
+            let time = new Date(d.etaAt);
+            let timeStr = time.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+            return `<div class="dept"><label class="dest"><span class="line long">${d.tripId.split("]")[2].split("_")[0]}</span> ${d.tripId} | Vec: ${d.vehicleId}</label><label class="arrivalTime">${timeStr}</label></div>`;
             /*
             <div class="dept">
                         <label class="dest"><span class="line long">1618</span> [183818388181] #13</label>
                         <label class="arrivalTime">12:00:00</label>
                     </div>
             */
-        })
+        }).join("")
 
         document.querySelector(".nextDept").innerHTML = nextDepts.map(d => {
-            let time = new Date(d.departureTime);
-            let timeStr = time.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-            return `<div class="dept"><label class="dest"><span class="line long">${d.tripId.split("]")[1].split("_")[0]}</span> ${d.tripId} | Vec: ${d.vehicleId}</label><label class="arrivalTime">${timeStr}</label></div>`;
+            let time = new Date(d.etaAt);
+            let timeStr = time.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+            return `<div class="dept"><label class="dest"><span class="line long">${d.tripId.split("]")[2].split("_")[0]}</span> ${d.tripId} | Vec: ${d.vehicleId}</label><label class="arrivalTime">${timeStr}</label></div>`;
             /*
             <div class="dept">
                         <label class="dest"><span class="line long">1618</span> [183818388181] #13</label>
                         <label class="arrivalTime">12:00:00</label>
                     </div>
             */
-        })
+        }).join("")
     })
 });
 
