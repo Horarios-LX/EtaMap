@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>Horários LX - ETA Map</title>
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@6.10.0/dist/maplibre-gl.css">
+    </head>
+    <body>
+        <div id="main">
+            <div id="map"></div>
+        </div>
+        <div id="info">
+            <label id="stopName">STOP NAME</label>
+            <label id="stopId">#000000</label>
+            <br>
+            <label id="lines"></label>
+            <br>
+            <label id="departuresTitle">Partidas:</label>
+            <div id="departuresList">
+                <button id="previousDept">
+                    Ver partidas anteriores
+                </button>
+                <div class="prevDept">
+                </div>
+                <div class="nextDept">
+                    
+                </div>
+            </div>
+        </div>
+        <script src="https://unpkg.com/@googlemaps/polyline-codec/dist/index.umd.js"></script>
+        <script type="module" src="./map.js"></script>
+        <script src="./index.js"></script>
+    </body>
+</html>

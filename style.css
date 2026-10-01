@@ -1,0 +1,140 @@
+:root {
+    --color-background: #181b20;
+    --color-foreground: #282e39;
+    --color-accent: #f7c625;
+}
+
+body, html {
+    background-color: var(--color-background);
+    margin: 0px;
+    width: 100%;
+    height: 100%;
+    font-family: Ubuntu, "Segoe UI", Verdana, sans-serif;
+}
+
+#status {
+    color: #cccccc;
+    font-size: 2rem !important;
+    line-height: 2rem;
+    height: 2rem;
+}
+
+span.line {
+    background: black;
+    color: white;
+    font-family: Inter, Ubuntu, sans-serif;
+    font-weight: 800;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 2em;
+    padding: 0.3em 0.5em;
+    line-height: 1;
+    border-radius: 999em;
+}
+
+span.line.long {
+    background-color: #c61d23 !important;
+}
+
+span.line.short {
+    background-color: #3d85c6 !important;
+}
+
+#map {
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+}
+
+#info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: calc(100% - 2rem);
+    background-color: var(--color-foreground);
+    padding: 1rem;
+    color: white;
+    text-align: center;
+}
+
+#info #stopName {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+#info #stopId {
+    color: #cfcfcf;
+    font-weight: bold;
+}
+
+#info #lines {
+    font-size: .75rem;
+}
+
+#info #departuresTitle {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-top: 1rem;
+}
+
+#departuresList {
+    display: flex;
+    flex-direction: column;
+
+    max-height: 30rem;
+
+    overflow-y: auto;
+
+    scrollbar-width: thin;
+}
+
+#previousDept {
+    position: sticky;
+    top: 0;
+
+    width: 100%;
+
+    padding: 0.25rem;
+    font-size: .75rem;
+
+    border: 0;
+
+    background: var(--color-background);
+    color: white;
+
+    font-weight: 600;
+
+    cursor: pointer;
+}
+
+.prevDept {
+    display: none;
+}
+
+.prevDept.open {
+    display: block;
+}
+
+.nextDept {
+    display: flex;
+    flex-direction: column;
+}
+
+.dept {
+    background: var(--color-background);
+    margin-top: .25rem;
+    padding: .25rem;
+    font-size: 1rem;
+    padding: .5rem;
+}
+
+.dept .dest {
+    float: left;
+}
+
+.dept .arrivalTime {
+    float: right;
+}
