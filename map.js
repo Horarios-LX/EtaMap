@@ -171,6 +171,18 @@ map.on('click', (event) => {
                     </div>
             */
         })
+
+        document.querySelector(".nextDept").innerHTML = nextDepts.map(d => {
+            let time = new Date(d.departureTime);
+            let timeStr = time.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+            return `<div class="dept"><label class="dest"><span class="line long">${d.tripId.split("]")[1].split("_")[0]}</span> ${d.tripId} | Vec: ${d.vehicleId}</label><label class="arrivalTime">${timeStr}</label></div>`;
+            /*
+            <div class="dept">
+                        <label class="dest"><span class="line long">1618</span> [183818388181] #13</label>
+                        <label class="arrivalTime">12:00:00</label>
+                    </div>
+            */
+        })
     })
 });
 
