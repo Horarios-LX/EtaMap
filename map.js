@@ -200,7 +200,7 @@ map.on('style.load', () => {
 
     setTimeout(() => {
         addStops(); // temporary solution:tm:
-    }, 1000);
+    }, 5000);
 });
 
 window.moveMapToLatLon = (pos) => {
